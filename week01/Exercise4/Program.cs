@@ -55,7 +55,7 @@ class Program
                 TheSmallestNumber = num;
 
         }
-        Console.WriteLine($"The Smallest positiv number is: {TheSmallestNumber}");
+        Console.WriteLine($"The Smallest positive number is: {TheSmallestNumber}");
 
         numbers.Sort();
         Console.WriteLine("The sorted list is:");
