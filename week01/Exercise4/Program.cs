@@ -8,7 +8,7 @@ class Program
         int number = -1;
         while (number != 0)
         {
-            Console.WriteLine("You Could enter a number (O to quit): ");
+            Console.WriteLine("You Could enter a number (0 to quit): ");
             number = int.Parse(Console.ReadLine());
             if (number != 0)
             {
