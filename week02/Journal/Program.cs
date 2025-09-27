@@ -6,12 +6,19 @@ public class JournalProgram
 {
     private static List<string> prompts = new List<string>
     {
-        "Who was the most interesting person I interacted with today?",
-        "What was the best part of my day?",
-        "How did I see the hand of the Lord in my life today?",
-        "What was the strongest emotion I felt today?",
-        "If I had one thing I could do over today, what would it be?"
+        "What challenge did you overcome today?",
+        "What are you grateful for right now?",
+        "Describe a moment of peace you experienced today.",
+        "What is one thing you learned today?",
+        "If you could change one thing about today, what would it be?",
+        "What is a goal you have for tomorrow?",
+        "What emotions did you feel today and why?",
+        "Describe a conversation that impacted you today.",
+        "What is a small act of kindness you witnessed or performed today?"
     };
+
+    
+    private static List<string> entries = new List<string>();
 
     public static void Main(string[] args)
     {
@@ -71,16 +78,28 @@ public class JournalProgram
         string timestamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         string fullEntry = $"Date/Time: {timestamp}\nPrompt: {randomPrompt}\nEntry: {entryContent}\n";
 
+       
+        entries.Add(fullEntry);
+
         Console.WriteLine("\nYour entry has been recorded:");
         Console.WriteLine(fullEntry);
-
-        
     }
 
     private static void DisplayEntries()
     {
-        Console.WriteLine("\nDisplaying all entries.");
-        Console.WriteLine("To see saved entries, load from a file after saving.");
+        if (entries.Count == 0)
+        {
+            Console.WriteLine("\nNo entries recorded yet.");
+        }
+        else
+        {
+            Console.WriteLine("\nDisplaying all journal entries:\n");
+            foreach (string entry in entries)
+            {
+                Console.WriteLine(entry);
+                Console.WriteLine("------------------------------");
+            }
+        }
     }
 
     private static void SaveJournalToFile()
@@ -94,11 +113,9 @@ public class JournalProgram
             return;
         }
 
-        else
+        try
         {
-            
-            string filename = $"Date/Time: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")}\nPrompt: {entryContent}\nEntry: {entryContent}\n";
-            File.AppendAllText(filename, entryContent);
+            File.WriteAllLines(filename, entries);
             Console.WriteLine($"Journal saved to {filename}");
         }
         catch (Exception ex)
@@ -122,9 +139,16 @@ public class JournalProgram
         {
             if (File.Exists(filename))
             {
-                string content = File.ReadAllText(filename);
+                string[] loadedEntries = File.ReadAllLines(filename);
+                entries.Clear();
+                entries.AddRange(loadedEntries);
+
                 Console.WriteLine($"\nJournal loaded from {filename}:\n");
-                Console.WriteLine(content);
+                foreach (string entry in entries)
+                {
+                    Console.WriteLine(entry);
+                    Console.WriteLine("------------------------------");
+                }
             }
             else
             {

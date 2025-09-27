@@ -6,7 +6,7 @@ public class Entry
     public string _promptText;
     public string _entryText;
     public string _mental;
-    public string _time; 
+    public string _time;
 
     public void Display()
     {
@@ -15,6 +15,8 @@ public class Entry
         Console.WriteLine($"Prompt: {_promptText}");
         Console.WriteLine($"Entry: {_entryText}");
         Console.WriteLine($"Mood: {_mental}");
-            
     }
 }
+
+            
+ 
