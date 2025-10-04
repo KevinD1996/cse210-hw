@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
 
-namespace ScriptureMemorizer
+public class ScriptureMemorizer
 {
-    class Program
-    {
+    
+    
         static void Main(string[] args)
         {
  
@@ -61,4 +61,4 @@ namespace ScriptureMemorizer
             }
         }
     }
-}
+

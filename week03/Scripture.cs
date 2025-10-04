@@ -1,8 +1,10 @@
-namespace ScriptureMemorizer
+public class Scripture
+
+{
 using System;
 using System.Collections.Generic;
 
-public class Scripture
+
 {
     private Reference _reference;
     private List<Word> _words;
@@ -60,4 +62,5 @@ public class Scripture
         }
         return true;
     }
+}
 }
