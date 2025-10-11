@@ -15,7 +15,7 @@ class Program
 
         Order order1 = new Order(cust1);
         order1.AddProduct(new Product("Keyboard", "KB001", 7, 5));
-        order1.AddProduct(new Product("Mouse", "MS002", 5, 6));
+        order1.AddProduct(new Product("Chacha", "CS002", 5, 6));
 
         Order order2 = new Order(cust2);
         order2.AddProduct(new Product("Perfume", "Perfume006", 10, 8));
