@@ -1,0 +1,2 @@
+0
+SimpleGoal:Attend the temple every month.,Perform ordinances in the temple.,1500,False
